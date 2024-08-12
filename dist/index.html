@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://use.typekit.net/nvg6qck.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime.js Example</title>
+    <style>
+
+
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            font-family: "schablona-no1", sans-serif;
+            /* 独自のフォントをここで指定 */
+        }
+
+        .animation-wrapper {
+            width: 90%;
+            padding-bottom: 90%;
+        }
+
+        .layered-animations {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1100px;
+            height: 550px;
+            margin: -275px 0 0 -550px;
+            text-align: center;
+        }
+
+        .layered-animations .shape {
+            position: absolute;
+            top: 50%;
+            overflow: visible;
+            font-size: 100px;
+            /* サイズを調整 */
+            margin-top: -50px;
+            /* サイズに応じて調整 */
+            color: #000;
+            /* 文字色を指定 */
+        }
+
+        .on {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+
+
+        /* .box{
+            width: 80px;
+            height: 80px;
+            color: blue;
+            }
+        .button{
+            width: 100px;
+            height: 100px;
+        } */
+    </style>
+    
+</head>
+
+<body>
+    <div class="on">
+        <form onsubmit="onSubmit(event)" >
+            <label for="qScript">
+                表示されている単語を入力してください(大文字でお願いします)
+            </label>
+            <input id="qScript" name="qScript" type="text"></input>
+            <button type="submit">送信</button>
+        </form>
+    </div>
+    <div class="animation-wrapper">
+        <div class="layered-animations">
+            
+            <div class="large">S</div>
+            <div class="large">M</div>
+            <div class="large">O</div>
+            <div class="large">K</div>
+            <div class="large">E</div>
+            
+        </div>
+    </div>
+    
+    <script>
+        function onSubmit(event) {
+            event.preventDefault();
+            let formData = new FormData(event.target);
+            let answer = formData.get("qScript");
+            console.log(answer);
+
+            let correct = "SMOKE";
+            
+            if (answer == correct) {
+                window.alert("正解です！");
+            } else {
+                window.alert("間違っています、もう一度入力してください。")
+            }
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>
